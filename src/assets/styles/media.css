@@ -1,0 +1,17 @@
+@media screen and (max-width:750px) {
+    .page-center{
+        padding: 0 1%;
+    }
+    .max-w390{
+        max-width: 390px;
+    }
+}
+
+@media screen and (min-width:750px) {
+    .m-l20-min{
+        margin-left: 20px;
+    }
+    .max-w488{
+        max-width: 488px;
+    }
+}

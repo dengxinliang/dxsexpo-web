@@ -1,0 +1,72 @@
+@font-face {
+  font-family: "iconfont"; /* Project id 3983018 */
+  /* Color fonts */
+  src: 
+       url('//at.alicdn.com/t/c/font_3983018_cp45e83k9wq.woff2?t=1681058024888') format('woff2'),
+       url('//at.alicdn.com/t/c/font_3983018_cp45e83k9wq.woff?t=1681058024888') format('woff'),
+       url('//at.alicdn.com/t/c/font_3983018_cp45e83k9wq.ttf?t=1681058024888') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.dxs-youbian:before {
+  content: "\e606";
+}
+
+.dxs-baoming:before {
+  content: "\e601";
+}
+
+.dxs-iconset0184:before {
+  content: "\e653";
+}
+
+.dxs-qianzheng:before {
+  content: "\e71d";
+}
+
+.dxs-zhanlan:before {
+  content: "\e605";
+}
+
+.dxs-sharpicons_truck-:before {
+  content: "\e828";
+}
+
+.dxs-zhifu:before {
+  content: "\e6be";
+}
+
+.dxs-fuwu:before {
+  content: "\e6d0";
+}
+
+.dxs-weizhi:before {
+  content: "\e61a";
+}
+
+.dxs-weibo:before {
+  content: "\e66b";
+}
+
+.dxs-jiaju-09:before {
+  content: "\e604";
+}
+
+.dxs-dianhua:before {
+  content: "\e6a9";
+}
+
+.dxs-QQ:before {
+  content: "\e667";
+}
+
+.dxs-weixin:before {
+  content: "\e607";
+}

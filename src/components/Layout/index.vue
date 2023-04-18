@@ -1,0 +1,164 @@
+<template>
+    <el-container>
+        <el-header>
+            <div class="layout-head">
+                <div class="flex-align">
+                    <div class="logo">
+                        <el-image
+                            fit="cover"
+                            :src="logoUrl"
+                        ></el-image>
+                    </div>
+                    <div class="info">
+                        <p><img :src="require('@/assets/logo-title.png')" alt=""></p>
+                    </div>
+                </div>
+                <Nav />
+                <!-- <div class="tips" v-if="isPx">
+                    <p><i class="el-icon-phone"></i>服务热线: 158 0175 9961</p>
+                </div> -->
+            </div>
+        </el-header>
+        <Banner />
+        <el-main>
+            <transition
+                appear
+                name="custom-classes-transition"
+                enter-active-class="animated zoomIn"
+                appear-active-class="animated zoomIn">
+                <router-view />
+            </transition>
+        </el-main>
+        <el-footer>
+            <div class="layout-foot">
+                <div class="flex-align">
+                    <div class="logo" v-if="isPx">
+                        <el-image
+                            fit="cover"
+                            :src="logoUrl"
+                        ></el-image>
+                    </div>
+                    <div class="mar-fl-20">
+                        <p style="margin-top: 8px;">版权所有：东新盛（上海）展览有限公司</p>
+                        <p>地址：上海市松江区莘砖公路3825号31栋818室</p>
+                        <p style="margin-top: -4px;" v-if="isPx">
+                            COPYRIGHT@2017 DAIL.COM.CN ALLRIGHTS RESERVED 
+                            <span>
+                                <a href="http://beian.miit.gov.cn/" target="_blank">备案号：沪ICP备17016645号-1</a>
+                                <a href="http://wap.scjgj.sh.gov.cn/businessCheck/verifKey.do?showType=extShow&serial=9031000020170712120505000001918026-SAIC_SHOW_310000-20120223150829742947&signData=MEQCIFXkrz5Y3hRpAzdbLg4iTugGGrW4UvjusAWxjV+lsNkbAiBAyZyxHMMdILhJCU8wfpZ0dvE+3NNesNJcSOt+rNrG8Q==" target="_blank">
+                                    <img :src="require('@/assets/images/01.png')" alt="" height="30">
+                                </a>
+                            </span>  
+                        </p>
+                        <p v-else>服务热线: 158 0175 9961</p>
+                    </div>
+                </div>
+                <div v-if="isPx">
+                    <div class="flex-align">
+                        <i class="iconfont dxs-weibo"
+                            style="font-size: 36px; margin-right: 14px;"></i>
+                        <el-dropdown style="margin-right: 10px;">
+                            <span class="el-dropdown-link">
+                                <i class="iconfont dxs-weixin"
+                                    style="font-size: 36px;"></i>
+                            </span>
+                            <el-dropdown-menu slot="dropdown">
+                                <el-dropdown-item>
+                                    <el-image
+                                        fit="cover"
+                                        :src="require('@/assets/images/wx.jpg')"
+                                        style="width: 144px; height: 144px;"
+                                    ></el-image>
+                                </el-dropdown-item>
+                            </el-dropdown-menu>
+                        </el-dropdown>
+                        <i class="iconfont dxs-QQ"
+                            style="font-size: 36px; margin-right: 10px;"></i>
+                        <div class="flex-align" style="background: #9a9a9a; padding: 0 10px; border-radius: 50px;">
+                            <i class="iconfont dxs-jiaju-09"
+                                style="font-size: 26px;"></i>
+                            <span style="margin-left: 10px; color: #fff; font-weight: bold;">15801759961</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </el-footer>
+    </el-container>
+</template>
+
+<script>
+import { mapState } from 'vuex'
+import Nav from './nav'
+import Banner from './banner'
+export default {
+    components: { Nav, Banner },
+    data() {
+        return {
+            logoUrl: require('@/assets/logo.png'),
+            screenWidth: 0
+        }
+    },
+    computed: {
+        ...mapState(['isPx'])
+    }
+}
+</script>
+
+<style lang="less" scoped>
+.logo{
+    width: 80px;
+    height: 80px;
+    margin-right: 20px;
+}
+.layout-head{
+    padding: 0 2%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .info{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        p{
+            width: 520px;
+        }
+    }
+    .tips{
+        background: #ff0000;
+        padding: 10px 20px;
+        p{
+            font-size: 16px;
+            color: #fff;
+            /deep/ .el-icon-phone{
+                border: 1px solid #fff;
+                padding: 6px;
+                border-radius: 100%;
+                margin-right: 10px;
+            }
+        }
+    }
+}
+.layout-foot{
+    padding: 0 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex: 1;
+    p{
+        display: flex;
+        align-items: center;
+        padding: 2px 0;
+        color: #2b2b2b;
+        font-size: 14px;
+        span{
+            display: flex;
+            align-items: center;
+        }
+        a{
+            margin-left: 6px;
+            color: #2b2b2b;
+        }
+    }
+}
+</style>
