@@ -40,19 +40,19 @@ export default {
         }
         dd{
             .title{
-                font-size: 24px;
+                font-size: 18px;
                 font-weight: bold;
                 margin-top: 10px;
             }
             p{
-                font-size: 18px;
+                font-size: 16px;
                 margin-top: 10px;
             }
         }
     }
     .rich-text{
         .title{
-            font-size: 20px;
+            font-size: 18px;
             font-weight: bold;
             border-bottom: 1px solid;
             margin: 10px 0;

@@ -17,7 +17,9 @@ export default {
                 { title: '', icon: require('@/assets/images/banner-1.png'), url: '' },
                 { title: '', icon: require('@/assets/images/banner-2.png'), url: '' },
                 { title: '', icon: require('@/assets/images/banner-3.png'), url: '' },
-                { title: '', icon: require('@/assets/images/banner-4.png'), url: '' }
+                { title: '', icon: require('@/assets/images/banner-4.png'), url: '' },
+                { title: '', icon: require('@/assets/images/banner-5.png'), url: '' },
+                { title: '', icon: require('@/assets/images/banner-6.png'), url: '' }
             ],
             swiperOption: {
                 effect: "cube",
@@ -45,7 +47,7 @@ export default {
 
 <style lang="less" scoped>
 .banner-item{
-    width: 1440px;
+    width: 97%;
     height: 446px;
     --shadow-clip-rect: -3px -5px -7px -5px;
     clip-path: inset(var(--shadow-clip-rect));

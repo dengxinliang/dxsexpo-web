@@ -58,12 +58,12 @@ export default {
             font-size: 64px;
         }
         .title{
-            font-size: 20px;
+            font-size: 18px;
             font-weight: bold;
             margin: 10px 0;
         }
         .tips{
-            font-size: 18px;
+            font-size: 16px;
         }
         &::after{
             font-family: iconfont;

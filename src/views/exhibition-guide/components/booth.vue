@@ -44,11 +44,11 @@ export default {
 <style lang="less" scoped>
 .booth{
     .title{
-        font-size: 20px;
+        font-size: 18px;
         font-weight: bold;
     }
     p{
-        font-size: 18px;
+        font-size: 16px;
         margin: 10px 0;
         line-height: 1.6;
     }

@@ -1,5 +1,5 @@
 <template>
-    <div class="flex-wrap">
+    <div class="flex-wrap" style="padding: 0 10px 20px;">
         <div class="item-title">{{ options.title }}</div>
         <el-row :gutter="10">
             <el-col :span="8" v-for="(item, index) in options.images" :key="index">
@@ -39,7 +39,7 @@ export default {
 .item-title{
     width: 100%;
     text-align: center;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: bold;
     padding: 20px 0;
     margin-bottom: 20px;

@@ -22,13 +22,13 @@ export default {
 
 <style lang="less" scoped>
 .title{
-    font-size: 24px;
+    font-size: 18px;
     font-weight: bold;
     text-align: center;
     padding: 20px 0;
 }
 p{
-    font-size: 18px;
+    font-size: 16px;
     margin: 20px 0;
 }
 </style>

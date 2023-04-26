@@ -21,6 +21,6 @@ export default {
 
 <style lang="less" scoped>
 /deep/ .el-tabs__item{
-    font-size: 18px;
+    font-size: 16px;
 }
 </style>

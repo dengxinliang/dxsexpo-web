@@ -1,11 +1,10 @@
 <template>
-    <div class="page-center">
+    <div class="page-center page-box">
         <Title title="展览计划" :isBtn="false" />
         <div class="flex">
             <el-tabs 
                 v-model="active"
                 tab-position="left" 
-                style="height: 480px;" 
                 @tab-click=tapTab
             >
                 <el-tab-pane name="1" label="医疗类"></el-tab-pane>
@@ -53,6 +52,7 @@ export default {
 <style lang="less" scoped>
 .plan-list{
     flex: 1;
+    padding: 0 10px 20px 0;
 }
 /deep/ .el-tabs__header{
     background: rgba(33, 38, 138, .1);
@@ -61,7 +61,7 @@ export default {
         width: 200px;
         height: 60px;
         padding: 0 30px;
-        font-size: 18px;
+        font-size: 16px;
         line-height: 60px;
         position: relative;
         &::after{

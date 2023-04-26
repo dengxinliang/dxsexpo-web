@@ -19,7 +19,8 @@
                 </div> -->
             </div>
         </el-header>
-        <Banner />
+        <Banner v-if="$route.name === 'home'" />
+        <img :src="require('@/assets/images/page-banner.png')" alt="" style="width: 100%; margin-bottom: -120px;" v-else>
         <el-main>
             <transition
                 appear
@@ -38,10 +39,10 @@
                             :src="logoUrl"
                         ></el-image>
                     </div>
-                    <div class="mar-fl-20">
+                    <div>
                         <p style="margin-top: 8px;">版权所有：东新盛（上海）展览有限公司</p>
                         <p>地址：上海市松江区莘砖公路3825号31栋818室</p>
-                        <p style="margin-top: -4px;" v-if="isPx">
+                        <!-- <p style="margin-top: -4px;" v-if="isPx">
                             COPYRIGHT@2017 DAIL.COM.CN ALLRIGHTS RESERVED 
                             <span>
                                 <a href="http://beian.miit.gov.cn/" target="_blank">备案号：沪ICP备17016645号-1</a>
@@ -49,8 +50,8 @@
                                     <img :src="require('@/assets/images/01.png')" alt="" height="30">
                                 </a>
                             </span>  
-                        </p>
-                        <p v-else>服务热线: 158 0175 9961</p>
+                        </p> -->
+                        <!-- <p v-else>服务热线: 158 0175 9961</p> -->
                     </div>
                 </div>
                 <div v-if="isPx">
@@ -106,8 +107,8 @@ export default {
 
 <style lang="less" scoped>
 .logo{
-    width: 80px;
-    height: 80px;
+    width: 68px;
+    height: 68px;
     margin-right: 20px;
 }
 .layout-head{
@@ -121,7 +122,7 @@ export default {
         flex-direction: column;
         align-items: center;
         p{
-            width: 520px;
+            width: 420px;
         }
     }
     .tips{

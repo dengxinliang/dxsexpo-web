@@ -54,8 +54,8 @@
             <Title title="参展流程" />
             <el-card class="hover-box" shadow="always" :body-style="{ padding: '20px 20px 0' }">
                 <el-row :gutter="80">
-                    <el-col :span="4" v-for="(item, index) in dxsIcons" :key="index">
-                        <div :class="['pass-item', index === dxsIcons.length - 1 ? 'no-after' : '']">
+                    <el-col class="wb20" :span="4" v-for="(item, index) in dxsIcons" :key="index">
+                        <div :class="['pass-item', (index + 1) % 5 === 0 ? 'no-after' : '']">
                             <i class="iconfont" :class="item.icon"></i>
                             <p class="title">{{ item.title }}</p>
                             <p class="tips">{{ item.tips }}</p>
@@ -121,7 +121,7 @@ export default {
 
 <style lang="less" scoped>
 .min-title{
-    font-size: 18px;
+    font-size: 16px;
     font-weight: bold;
     padding: 0 0 10px;
 }
@@ -161,12 +161,12 @@ export default {
         font-size: 58px;
     }
     .title{
-        font-size: 18px;
+        font-size: 16px;
         font-weight: bold;
         margin: 10px 0;
     }
     .tips{
-        font-size: 16px;
+        font-size: 14px;
     }
     &::after{
         font-family: iconfont;
@@ -175,11 +175,15 @@ export default {
         top: 50%;
         right: -60px;
         transform: translate(0, -50%);
-        font-size: 36px;
+        font-size: 28px;
     }
     &.no-after::after{
         display: none;
     }
+}
+
+.wb20{
+    width: 20%;
 }
 
 </style>

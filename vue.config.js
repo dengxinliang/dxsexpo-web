@@ -3,6 +3,7 @@
 // see http://vuejs-templates.github.io/webpack for documentation.
 
 module.exports = {
+  publicPath: './',
   devServer: {
     // Paths
     proxy: {

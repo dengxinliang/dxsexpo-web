@@ -86,7 +86,7 @@ export default {
             border-bottom: 3px solid #ffd04b;
         }
         .el-menu-item, .el-submenu__title{
-            font-size: 16px;
+            font-size: 14px;
         }
     }
 }

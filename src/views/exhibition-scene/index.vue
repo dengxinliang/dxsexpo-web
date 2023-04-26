@@ -1,5 +1,5 @@
 <template>
-    <div class="page-center">
+    <div class="page-center page-box">
         <Title title="展会现场" :isBtn="currentRole === 'Detail'" btnText="返回" @tapBtn="tapTitleBtn" />
         <keep-alive>
             <component :is="currentRole" :options="options" @tapOption="tapOption"></component>

@@ -34,7 +34,7 @@ export default {
 
 <style lang="less" scoped>
 .page-title{
-    font-size: 24px;
+    font-size: 20px;
     color: #21268a;
     font-weight: bold;
     padding: 10px 0 4px 68px;
@@ -49,7 +49,7 @@ export default {
 .page-title::after{
     content: "";
     width: 60px;
-    height: 30px;
+    height: 24px;
     background: #21268a;
     position: absolute;
     left: 0;
