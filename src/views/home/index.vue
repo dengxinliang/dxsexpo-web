@@ -7,43 +7,49 @@
                     <p class="max-w488 max-w390">
                         <el-image 
                             style="width: 100%;"
-                            :src="require('@/assets/images/banner-1.png')" 
-                            :preview-src-list="[require('@/assets/images/banner-1.png')]">
+                            :src="exhibitionImg" 
+                            :preview-src-list="[exhibitionImg]">
                         </el-image>
                     </p>
-                    <div style="flex: 1;" class="m-l20-min">
-                        <p style="text-indent: 2em; margin-bottom: 6px;">东新盛（上海）展览有限公司成立于2017年，是一家致力于全球展会的境内组展机构。多年来，持续专注于为企业走出去，提供高品质的“一站式出展服务”。</p>
-                        <p style="text-indent: 2em; margin-bottom: 6px;">公司自成立以来，与各行业展览巨头保持紧密合作，先后代理了多个行业类别的境内外品牌展会，成功为国内众多企业提供高品质的一站式出展服务，凭借丰富的行业资源和专业的组展经验，赢得了客户的一致好评。且近年来，我司先后与国内各地经贸委、行业协会、商会等进行了深入的交流与合作，在业界具有良好声誉。</p>
-                        <p style="text-indent: 2em; margin-bottom: 6px;">公司坚持以人为本，广纳贤才，拥有一支业务熟练、专业且热忱的服务团队，核心成员均是深耕于国际展会的资深人士，拥有十几年境内外展会经验 。</p>
-                        <p style="text-indent: 2em;">始于东方，敢于新而盛于全球！ 在后疫情时代，我们定将劳记初心，在展览之路上，不断探索、拓展与创新，只愿成为您全球化道路上最可靠的品牌展览服务机构！</p>
-                    </div>
+                    <div style="flex: 1;" class="m-l20-min" v-html="exhibitionInfo.des"></div>
                 </div>
             </el-card>
         </div>
         <div>
             <el-row :gutter="20">
                 <el-col :xs="24" :sm="24" :md="12">
-                    <Title title="行业资讯" />
-                    <el-card class="hover-box" shadow="always" :body-style="{ padding: '10px' }" v-for="item in 3" :key="item" style="margin-bottom: 10px;">
-                        <el-row :gutter="10">
-                            <el-col :xs="24" :sm="24" :md="9">
-                                <img :src="require('@/assets/images/banner-1.png')">
-                            </el-col>
-                            <el-col :xs="24" :sm="24" :md="15">
-                                <div class="min-title">东新盛（上海）展览有限公司成立于2017年</div>
-                                <p class="clamp-3">始于东方，敢于新而盛于全球！ 在后疫情时代，我们定将劳记初心，在展览之路上，不断探索、拓展与创新，只愿成为您全球化道路上最可靠的品牌展览服务机构！</p>
-                                <p class="times">2023-04-08 11:30</p>
-                            </el-col>
-                        </el-row>
+                    <Title title="行业资讯" @tapBtn="$router.push({path: '/news'})" />
+                    <el-card 
+                        class="hover-box" 
+                        shadow="always" 
+                        :body-style="{ padding: '10px' }" 
+                        v-for="(item, index) in informationList" 
+                        :key="index" 
+                        style="margin-bottom: 10px;"
+                    >
+                        <div @click="tapItem(item, '/news')">
+                            <el-row :gutter="10">
+                                <el-col :xs="24" :sm="24" :md="9">
+                                    <img :src="item.img_list">
+                                </el-col>
+                                <el-col :xs="24" :sm="24" :md="15">
+                                    <div class="min-title">{{item.title}}</div>
+                                    <p class="clamp-3">{{initHtml(item.des)}}</p>
+                                    <p class="times">{{parseTime(new Date(item.create_date))}}</p>
+                                </el-col>
+                            </el-row>
+                        </div>
                     </el-card>
                 </el-col>
                 <el-col :xs="24" :sm="24" :md="12">
-                    <Title title="展会现场" />
+                    <Title title="展会现场" @tapBtn="$router.push({path: '/exhibition-scene'})" />
                     <el-row :gutter="10">
-                        <el-col :xs="24" :sm="24" :md="12" v-for="item in 4" :key="item">
+                        <el-col :xs="24" :sm="24" :md="12" v-for="(item, index) in exhibitionSceneList" :key="index">
                             <el-card class="hover-box" shadow="always" :body-style="{ padding: '0px' }" style="margin-bottom: 10px;">
-                                <img :src="require('@/assets/images/banner-1.png')">
-                                <div class="pad-10 ellipsis">东新盛（上海）展览有限公司成立于2017年</div>
+                                <div @click="tapItem(item, '/exhibition-scene')">
+                                    <img :src="item.img_list">
+                                    <div class="pad-10 ellipsis">{{item.des}}</div>
+                                </div>
                             </el-card>
                         </el-col>
                     </el-row>
@@ -51,7 +57,7 @@
             </el-row>
         </div>
         <div>
-            <Title title="参展流程" />
+            <Title title="参展流程" @tapBtn="$router.push({path: '/exhibition-guide'})" />
             <el-card class="hover-box" shadow="always" :body-style="{ padding: '20px 20px 0' }">
                 <el-row :gutter="80">
                     <el-col class="wb20" :span="4" v-for="(item, index) in dxsIcons" :key="index">
@@ -81,6 +87,10 @@
 </template>
 
 <script>
+import { parseTime } from '@/utils'
+import { information } from '@/apis/news'
+import { exhibitionScene } from '@/apis/exhibitionScene'
+import { mapState } from 'vuex'
 export default {
     components: {
         Title: () => import('@/components/Title')
@@ -99,10 +109,13 @@ export default {
                 { title: '支付尾款', icon: 'dxs-zhifu', tips: '支付尾款（支付人员及运输等尾款）' },
                 { title: '出团参展', icon: 'dxs-zhanlan', tips: '' },
                 { title: '展后服务', icon: 'dxs-fuwu', tips: '（开具发票及协助企业申请补贴）' }
-            ]
+            ],
+            informationList: [],
+            exhibitionSceneList: []
         }
     },
     computed: {
+        ...mapState(['exhibitionInfo']),
         dxsIconsTop() {
             const list = [...this.dxsIcons]
             const middleIndex = Math.ceil(list.length / 2)
@@ -114,6 +127,44 @@ export default {
             const middleIndex = Math.ceil(list.length / 2)
             const newList = list.splice(-middleIndex)
             return newList
+        },
+        exhibitionImg() {
+            const { img_list } = this.exhibitionInfo
+            const imgs = img_list ? JSON.parse(img_list) : img_list
+            return imgs ? imgs[0].url : imgs
+        }
+    },
+    created() {
+        this.information()
+        this.exhibitionScene()
+    },
+    methods: {
+        parseTime,
+        async information() {
+            const params = {}
+            const { code, data } = await information(params)
+            if(code === 0) {
+                this.informationList = data || []
+            }
+        },
+        async exhibitionScene() {
+            const params = {}
+            const { code, data } = await exhibitionScene(params)
+            if(code === 0) {
+                this.exhibitionSceneList = data || []
+            }
+        },
+        initHtml(content) {
+            if(!content) return '';
+            const div = document.createElement('div')
+            div.innerHTML = content
+            return div.innerText
+        },
+        tapItem(item, url) {
+            this.$router.push({
+                path: url,
+                query: { id: item.id }
+            })
         }
     }
 }

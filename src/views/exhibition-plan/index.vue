@@ -7,14 +7,16 @@
                 tab-position="left" 
                 @tab-click=tapTab
             >
-                <el-tab-pane name="1" label="医疗类"></el-tab-pane>
-                <el-tab-pane name="2" label="化妆品美容类"></el-tab-pane>
-                <el-tab-pane name="3" label="管材铸造类"></el-tab-pane>
-                <el-tab-pane name="4" label="电力类"></el-tab-pane>
+                <el-tab-pane  
+                    v-for="(item, index) in typeList" 
+                    :key="index"
+                    :name="item.dictionary" 
+                    :label="item.name"
+                ></el-tab-pane>
             </el-tabs>
             <div class="plan-list">
                 <keep-alive>
-                    <component :is="currentRole" :options="itemData" @tapItem="tapItem"></component>
+                    <component :is="currentRole" :list="list" :options="itemData" @tapItem="tapItem"></component>
                 </keep-alive>
             </div>
         </div>
@@ -24,6 +26,7 @@
 <script>
 import List from './components/list'
 import Detail from './components/detail'
+import { industryCategory, exhibitionPlan } from '@/apis/exhibitionPlan'
 export default {
     components: {
         Title: () => import('@/components/Title'),
@@ -34,10 +37,38 @@ export default {
         return {
             currentRole: 'List',
             itemData: {},
-            active: '1'
+            active: '',
+            typeList: [],
+            rows: []
         }
     },
+    computed: {
+        list() {
+            const arr = this.rows.filter(item => item.industry_dictionary === this.active)
+            return arr
+        }
+    },
+    created() {
+        this.devTypeData()
+        this.devData()
+    },
     methods: {
+        async devData() {
+            const params = {}
+            const { code, data } = await exhibitionPlan(params)
+            if (code === 0) {
+                this.rows = data || []
+            }
+        },
+        async devTypeData() {
+            const params = {}
+            const { code, data } = await industryCategory(params)
+            if (code === 0) {
+                const rows = data || []
+                this.typeList = rows
+                this.active = rows[0].dictionary
+            }
+        },
         tapItem(item) {
             this.currentRole = 'Detail'
             this.itemData = item

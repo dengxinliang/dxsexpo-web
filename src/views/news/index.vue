@@ -1,10 +1,53 @@
 <template>
-    <div></div>
+    <div class="page-center page-box">
+        <Title title="行业资讯" :isBtn="currentRole === 'Detail'" btnText="返回" @tapBtn="tapTitleBtn" style="padding: 10px 10px 4px 68px;" />
+        <keep-alive>
+            <component :is="currentRole" :list="list" :options="options" @tapOption="tapOption"></component>
+        </keep-alive>
+    </div>
 </template>
 
 <script>
+import List from './components/list'
+import Detail from './components/detail'
+import { information } from '@/apis/news'
 export default {
-    
+    components: { 
+        Title: () => import('@/components/Title'),
+        List,
+        Detail
+    },
+    data() {
+        return {
+            currentRole: 'List',
+            options: {},
+            list: []
+        }
+    },
+    async created() {
+        await this.devData()
+        const { id } = this.$route.query
+        if(id) {
+            this.options = this.list.find(item => item.id == id)
+            this.currentRole = 'Detail'
+        }
+    },
+    methods: {
+        async devData() {
+            const params = {}
+            const { code, data } = await information(params)
+            if(code === 0) {
+                this.list = data || []
+            }
+        },
+        tapOption(item) {
+            this.options = item
+            this.currentRole = 'Detail'
+        },
+        tapTitleBtn() {
+            this.currentRole = 'List'
+        }
+    }
 }
 </script>
 

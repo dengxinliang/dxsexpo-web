@@ -9,8 +9,8 @@
                     style="margin-bottom: 10px; cursor: pointer;"
                 >
                     <div @click="tapItem(item)">
-                        <img :src="item.img" alt="">
-                        <p style="margin-top: 10px;">{{ item.title }}</p>
+                        <img :src="item.img_list" alt="">
+                        <p style="margin-top: 10px;">{{ item.des }}</p>
                     </div>
                 </el-card>
             </el-col>
@@ -19,7 +19,7 @@
             background
             hide-on-single-page
             layout="prev, pager, next"
-            :total="1000"
+            :total="0"
             style="text-align: center; width: 100%; margin-top: 10px;">
         </el-pagination>
     </div>
@@ -27,64 +27,12 @@
 
 <script>
 export default {
-    data() {
-        return {
-            list: [
-                { 
-                    title: '2023年日本东京国际化妆品技术展', 
-                    img: require('@/assets/images/banner-1.png'),
-                    images: [
-                        { title: 1, img: require('@/assets/images/banner-1.png') },
-                        { title: 2, img: require('@/assets/images/banner-1.png') },
-                        { title: 3, img: require('@/assets/images/banner-1.png') }
-                    ]
-                },
-                { 
-                    title: '2023年日本东京国际化妆品技术展', 
-                    img: require('@/assets/images/banner-1.png'),
-                    images: [
-                        { title: 1, img: require('@/assets/images/banner-1.png') },
-                        { title: 2, img: require('@/assets/images/banner-1.png') },
-                        { title: 3, img: require('@/assets/images/banner-1.png') }
-                    ]
-                },
-                { 
-                    title: '2023年日本东京国际化妆品技术展', 
-                    img: require('@/assets/images/banner-1.png'),
-                    images: [
-                        { title: 1, img: require('@/assets/images/banner-1.png') },
-                        { title: 2, img: require('@/assets/images/banner-1.png') },
-                        { title: 3, img: require('@/assets/images/banner-1.png') }
-                    ]
-                },
-                { 
-                    title: '2023年日本东京国际化妆品技术展', 
-                    img: require('@/assets/images/banner-1.png'),
-                    images: [
-                        { title: 1, img: require('@/assets/images/banner-1.png') },
-                        { title: 2, img: require('@/assets/images/banner-1.png') },
-                        { title: 3, img: require('@/assets/images/banner-1.png') }
-                    ]
-                },
-                { 
-                    title: '2023年日本东京国际化妆品技术展', 
-                    img: require('@/assets/images/banner-1.png'),
-                    images: [
-                        { title: 1, img: require('@/assets/images/banner-1.png') },
-                        { title: 2, img: require('@/assets/images/banner-1.png') },
-                        { title: 3, img: require('@/assets/images/banner-1.png') }
-                    ]
-                },
-                { 
-                    title: '2023年日本东京国际化妆品技术展', 
-                    img: require('@/assets/images/banner-1.png'),
-                    images: [
-                        { title: 1, img: require('@/assets/images/banner-1.png') },
-                        { title: 2, img: require('@/assets/images/banner-1.png') },
-                        { title: 3, img: require('@/assets/images/banner-1.png') }
-                    ]
-                }
-            ]
+    props: {
+        list: {
+            type: Array,
+            default: () => {
+                return []
+            }
         }
     },
     methods: {

@@ -6,7 +6,7 @@
                     <div class="logo">
                         <el-image
                             fit="cover"
-                            :src="logoUrl"
+                            :src="exhibitionInfo.logo"
                         ></el-image>
                     </div>
                     <div class="info">
@@ -36,12 +36,12 @@
                     <div class="logo" v-if="isPx">
                         <el-image
                             fit="cover"
-                            :src="logoUrl"
+                            :src="exhibitionInfo.logo"
                         ></el-image>
                     </div>
                     <div>
-                        <p style="margin-top: 8px;">版权所有：东新盛（上海）展览有限公司</p>
-                        <p>地址：上海市松江区莘砖公路3825号31栋818室</p>
+                        <p style="margin-top: 8px;">版权所有：{{exhibitionInfo.name}}</p>
+                        <p>地址：{{exhibitionInfo.address}}</p>
                         <!-- <p style="margin-top: -4px;" v-if="isPx">
                             COPYRIGHT@2017 DAIL.COM.CN ALLRIGHTS RESERVED 
                             <span>
@@ -56,8 +56,8 @@
                 </div>
                 <div v-if="isPx">
                     <div class="flex-align">
-                        <i class="iconfont dxs-weibo"
-                            style="font-size: 36px; margin-right: 14px;"></i>
+                        <!-- <i class="iconfont dxs-weibo"
+                            style="font-size: 36px; margin-right: 14px;"></i> -->
                         <el-dropdown style="margin-right: 10px;">
                             <span class="el-dropdown-link">
                                 <i class="iconfont dxs-weixin"
@@ -68,17 +68,19 @@
                                     <el-image
                                         fit="cover"
                                         :src="require('@/assets/images/wx.jpg')"
-                                        style="width: 144px; height: 144px;"
+                                        style="width: 144px; height: 164px;"
                                     ></el-image>
                                 </el-dropdown-item>
                             </el-dropdown-menu>
                         </el-dropdown>
-                        <i class="iconfont dxs-QQ"
+                        <a href="tencent://message/?uin=417538558&Site=&Menu=yes">
+                            <i class="iconfont dxs-QQ"
                             style="font-size: 36px; margin-right: 10px;"></i>
+                        </a>
                         <div class="flex-align" style="background: #9a9a9a; padding: 0 10px; border-radius: 50px;">
                             <i class="iconfont dxs-jiaju-09"
                                 style="font-size: 26px;"></i>
-                            <span style="margin-left: 10px; color: #fff; font-weight: bold;">15801759961</span>
+                            <span style="margin-left: 10px; color: #fff; font-weight: bold;">{{exhibitionInfo.mobile}}</span>
                         </div>
                     </div>
                 </div>
@@ -100,7 +102,7 @@ export default {
         }
     },
     computed: {
-        ...mapState(['isPx'])
+        ...mapState(['isPx', 'exhibitionInfo'])
     }
 }
 </script>

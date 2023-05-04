@@ -1,12 +1,12 @@
 <template>
     <div class="page-center">
         <el-card class="hover-box" :body-style="{ padding: '10px 30px' }" shadow="always">
-            <div class="title">东新盛（上海）展览有限公司</div>
+            <div class="title">{{exhibitionInfo.name}}</div>
             <el-row>
-                <el-col :span="8"><p>电话：15801759961</p></el-col>
-                <el-col :span="8"><p>传真：15801759961</p></el-col>
-                <el-col :span="8"><p>邮箱：15801759961@qq.com</p></el-col>
-                <el-col :span="24"><p>地址：上海市松江区莘砖公路3825号31栋818室</p></el-col>
+                <el-col :span="8"><p>电话：{{exhibitionInfo.mobile}}</p></el-col>
+                <!-- <el-col :span="8"><p>传真：{{exhibitionInfo.fax}}</p></el-col> -->
+                <el-col :span="8"><p>邮箱：{{exhibitionInfo.email}}</p></el-col>
+                <el-col :span="8"><p>地址：{{exhibitionInfo.address}}</p></el-col>
             </el-row>
             <Amap />
         </el-card>
@@ -15,8 +15,12 @@
 
 <script>
 import Amap from '@/components/Amap'
+import { mapState } from 'vuex'
 export default {
-    components: { Amap }
+    components: { Amap },
+    computed: {
+        ...mapState(['exhibitionInfo'])
+    }
 }
 </script>
 

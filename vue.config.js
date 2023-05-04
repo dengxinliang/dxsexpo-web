@@ -8,7 +8,7 @@ module.exports = {
     // Paths
     proxy: {
       '/api': {
-          target: "http://192.168.210.208:8884",
+          target: "http://139.224.237.86",
           changeOrigin: true,
           cookieDomainRewrite: {
               '*': "http://127.0.0.1:8088/",

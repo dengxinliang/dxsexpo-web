@@ -1,20 +1,20 @@
 <template>
     <div class="flex-wrap" style="padding: 0 10px 20px;">
-        <div class="item-title">{{ options.title }}</div>
+        <div class="item-title">{{ options.des }}</div>
         <el-row :gutter="10">
-            <el-col :span="8" v-for="(item, index) in options.images" :key="index">
+            <el-col :span="8" v-for="(item, index) in imgList" :key="index">
                 <el-card 
                     class="hover-box" 
                     shadow="always" 
                     :body-style="{ padding: '10px' }" 
                     style="margin-bottom: 10px; cursor: pointer;"
                 >
-                    <div @click="tapItem(item)">
+                    <div>
                         <el-image 
-                            :src="item.img" 
-                            :preview-src-list="[item.img]">
+                            :src="item.url" 
+                            :preview-src-list="[item.url]">
                         </el-image>
-                        <p style="margin-top: 10px;">{{ item.title }}</p>
+                        <p style="margin-top: 10px;">{{ item.name }}</p>
                     </div>
                 </el-card>
             </el-col>
@@ -23,7 +23,7 @@
             background
             hide-on-single-page
             layout="prev, pager, next"
-            :total="1000"
+            :total="0"
             style="text-align: center; width: 100%; margin-top: 10px;">
         </el-pagination>
     </div>
@@ -31,7 +31,13 @@
 
 <script>
 export default {
-    props: ['options']
+    props: ['options'],
+    computed: {
+        imgList() {
+            if(!this.options.site_photos) return [];
+            return JSON.parse(this.options.site_photos)
+        }
+    }
 }
 </script>
 

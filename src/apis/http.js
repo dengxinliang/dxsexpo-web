@@ -1,9 +1,9 @@
 import axios from 'axios';
 
 const netWork = (()=>{
-    const update = (obj) => {
+    const update = () => {
         const  instance = axios.create({
-            baseURL: '/',
+            baseURL: process.env.NODE_ENV === 'development' ? '/api' : 'http://139.224.237.86',
             timeout: 20000,
             withCredentials: true
         });
@@ -13,7 +13,7 @@ const netWork = (()=>{
             return request;
         }, (error) => {
             // 对请求错误做些什么
-            console.log(error)
+            console.log(error);
         });
         instance.interceptors.response.use(function (response) {
             return response;
@@ -24,9 +24,9 @@ const netWork = (()=>{
         return instance;
     };
     return{
-        post: async (url,data,obj)=>{
+        post: async (url,data)=>{
             try{
-                const res = await update(obj).post(url,data);
+                const res = await update().post(url,data);
                 if(!res.data.success){
                     return res.data
                 }else{
@@ -34,11 +34,11 @@ const netWork = (()=>{
                 }
             }catch(error) {
                 console.log(error);
-            };
+            }
         },
-        get: async (url,params,obj)=>{
+        get: async (url,params)=>{
             try{
-                const res = await update(obj).get(url,{params});
+                const res = await update().get(url,{params});
                 if(!res.data.success){
                     return res.data
                 }else{
@@ -46,7 +46,7 @@ const netWork = (()=>{
                 }
             }catch(error) {
                 console.log(error);
-            };
+            }
         }
     } 
 })();

@@ -6,7 +6,7 @@ Vue.use(VueRoute)
 
 const router = new VueRoute({
     mode: 'history',
-    base: 'dxsexpo-web',
+    // base: 'dxsexpo-web',
     scrollBehavior: () => ({ y: 0 }),
     routes: [
         {
@@ -49,6 +49,11 @@ const router = new VueRoute({
                     path: 'join-us',
                     name: 'joinUs',
                     component: () => import('@/views/join-us')
+                },
+                {
+                    path: 'news',
+                    name: 'news',
+                    component: () => import('@/views/news')
                 }
             ]
         }

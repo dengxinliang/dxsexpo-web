@@ -1,17 +1,21 @@
 <template>
     <div class="flex-wrap">
-        <el-row :gutter="10">
+        <el-row :gutter="10" style="width: 100%;">
             <el-col :span="8" v-for="(item, index) in list" :key="index">
                 <el-card 
                     class="hover-box" 
                     shadow="always" 
                     :body-style="{ padding: '10px' }" 
-                    style="margin-bottom: 10px; cursor: pointer;"
+                    style="margin-bottom: 10px; cursor: pointer; height: 480px;"
                 >
                     <div @click="tapItem(item)">
-                        <img :src="item.img" alt="">
-                        <p class="plan-title">{{ item.title }}</p>
-                        <p>日期：{{ item.times }}</p>
+                        <el-image
+                            style="width: 100%; height: 320px;"
+                            :src="item.logo"
+                            fit="fill">
+                        </el-image>
+                        <p class="plan-title">{{ item.name }}</p>
+                        <p>日期：{{ item.exhibition_date }}</p>
                         <p>地址：{{ item.address }}</p>
                     </div>
                 </el-card>
@@ -21,7 +25,7 @@
             background
             hide-on-single-page
             layout="prev, pager, next"
-            :total="1000"
+            :total="0"
             style="text-align: center; width: 100%; margin-top: 10px;">
         </el-pagination>
     </div>
@@ -29,58 +33,12 @@
 
 <script>
 export default {
-    data() {
-        return {
-            list: [
-                {
-                    img: require('@/assets/images/banner-1.png'),
-                    title: '2023年日本东京国际化妆品技术展',
-                    times: '2023年1月11日[星期三]-13日[星期五]',
-                    address: '日本东京有明国际展览中心',
-                    period: '一年一届',
-                    organizer: '中国'
-                },
-                {
-                    img: require('@/assets/images/banner-1.png'),
-                    title: '2023年日本东京国际化妆品技术展',
-                    times: '2023年1月11日[星期三]-13日[星期五]',
-                    address: '日本东京有明国际展览中心',
-                    period: '一年一届',
-                    organizer: '中国'
-                },
-                {
-                    img: require('@/assets/images/banner-1.png'),
-                    title: '2023年日本东京国际化妆品技术展',
-                    times: '2023年1月11日[星期三]-13日[星期五]',
-                    address: '日本东京有明国际展览中心',
-                    period: '一年一届',
-                    organizer: '中国'
-                },
-                {
-                    img: require('@/assets/images/banner-1.png'),
-                    title: '2023年日本东京国际化妆品技术展',
-                    times: '2023年1月11日[星期三]-13日[星期五]',
-                    address: '日本东京有明国际展览中心',
-                    period: '一年一届',
-                    organizer: '中国'
-                },
-                {
-                    img: require('@/assets/images/banner-1.png'),
-                    title: '2023年日本东京国际化妆品技术展',
-                    times: '2023年1月11日[星期三]-13日[星期五]',
-                    address: '日本东京有明国际展览中心',
-                    period: '一年一届',
-                    organizer: '中国'
-                },
-                {
-                    img: require('@/assets/images/banner-1.png'),
-                    title: '2023年日本东京国际化妆品技术展',
-                    times: '2023年1月11日[星期三]-13日[星期五]',
-                    address: '日本东京有明国际展览中心',
-                    period: '一年一届',
-                    organizer: '中国'
-                }
-            ]
+    props: {
+        list: {
+            type: Array,
+            default: () => {
+                return []
+            }
         }
     },
     methods: {

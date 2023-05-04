@@ -1,8 +1,8 @@
 <template>
     <div class="page-center page-box">
-        <Title title="展会现场" :isBtn="currentRole === 'Detail'" btnText="返回" @tapBtn="tapTitleBtn" />
+        <Title title="展会现场" :isBtn="currentRole === 'Detail'" btnText="返回" @tapBtn="tapTitleBtn" style="padding: 10px 10px 4px 68px;" />
         <keep-alive>
-            <component :is="currentRole" :options="options" @tapOption="tapOption"></component>
+            <component :is="currentRole" :list="list" :options="options" @tapOption="tapOption"></component>
         </keep-alive>
     </div>
 </template>
@@ -10,6 +10,7 @@
 <script>
 import List from './components/list'
 import Detail from './components/detail'
+import { exhibitionScene } from '@/apis/exhibitionScene'
 export default {
     components: { 
         Title: () => import('@/components/Title'),
@@ -19,10 +20,26 @@ export default {
     data() {
         return {
             currentRole: 'List',
-            options: {}
+            options: {},
+            list: []
+        }
+    },
+    async created() {
+        await this.devData()
+        const { id } = this.$route.query
+        if(id) {
+            this.options = this.list.find(item => item.id == id)
+            this.currentRole = 'Detail'
         }
     },
     methods: {
+        async devData() {
+            const params = {}
+            const { code, data } = await exhibitionScene(params)
+            if(code === 0) {
+                this.list = data || []
+            }
+        },
         tapOption(item) {
             this.options = item
             this.currentRole = 'Detail'
