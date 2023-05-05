@@ -45,7 +45,7 @@
                     <Title title="展会现场" @tapBtn="$router.push({path: '/exhibition-scene'})" />
                     <el-row :gutter="10">
                         <el-col :xs="24" :sm="24" :md="12" v-for="(item, index) in exhibitionSceneList" :key="index">
-                            <el-card class="hover-box" shadow="always" :body-style="{ padding: '0px' }" style="margin-bottom: 10px;">
+                            <el-card class="hover-box" shadow="always" :body-style="{ padding: '15px' }" style="margin-bottom: 10px;">
                                 <div @click="tapItem(item, '/exhibition-scene')">
                                     <img :src="item.img_list">
                                     <div class="pad-10 ellipsis">{{item.des}}</div>
@@ -64,7 +64,7 @@
                         <div :class="['pass-item', (index + 1) % 5 === 0 ? 'no-after' : '']">
                             <i class="iconfont" :class="item.icon"></i>
                             <p class="title">{{ item.title }}</p>
-                            <p class="tips">{{ item.tips }}</p>
+                            <p class="tips">{{ item.des }}</p>
                         </div>
                     </el-col>
                 </el-row>
@@ -90,6 +90,7 @@
 import { parseTime } from '@/utils'
 import { information } from '@/apis/news'
 import { exhibitionScene } from '@/apis/exhibitionScene'
+import { exhibitionProcess } from '@/apis/exhibitionGuide'
 import { mapState } from 'vuex'
 export default {
     components: {
@@ -98,18 +99,7 @@ export default {
     data() {
         return {
             activeName: 'first',
-            dxsIcons: [
-                { title: '报名', icon: 'dxs-baoming', tips: '（企业填写报名表双方签订参展合约）' },
-                { title: '支付展位定金', icon: 'dxs-zhifu', tips: '（参展企业支付合约对应展位定金）' },
-                { title: '确认展位', icon: 'dxs-weizhi', tips: '（根据报名先后顺序下达并分配展位）' },
-                { title: '支付展位尾款及人员定金', icon: 'dxs-zhifu', tips: '' },
-                { title: '提交会刊信息', icon: 'dxs-iconset0184', tips: '' },
-                { title: '展品运输', icon: 'dxs-sharpicons_truck-', tips: '（发运输指南并确认运输样品）' },
-                { title: '办理签证', icon: 'dxs-qianzheng', tips: '（我司协助展商办理签证）' },
-                { title: '支付尾款', icon: 'dxs-zhifu', tips: '支付尾款（支付人员及运输等尾款）' },
-                { title: '出团参展', icon: 'dxs-zhanlan', tips: '' },
-                { title: '展后服务', icon: 'dxs-fuwu', tips: '（开具发票及协助企业申请补贴）' }
-            ],
+            dxsIcons: [],
             informationList: [],
             exhibitionSceneList: []
         }
@@ -137,6 +127,7 @@ export default {
     created() {
         this.information()
         this.exhibitionScene()
+        this.exhibitionProcess()
     },
     methods: {
         parseTime,
@@ -152,6 +143,13 @@ export default {
             const { code, data } = await exhibitionScene(params)
             if(code === 0) {
                 this.exhibitionSceneList = data || []
+            }
+        },
+        async exhibitionProcess() {
+            const params = {}
+            const { code, data } = await exhibitionProcess(params)
+            if(code === 0) {
+                this.dxsIcons = data || []
             }
         },
         initHtml(content) {

@@ -33,6 +33,7 @@ export default {
 .plan-detail{
     dl{
         display: flex;
+        padding: 0 16px;
         dt{
             width: 240px;
             margin-right: 20px;
@@ -50,6 +51,7 @@ export default {
         }
     }
     .rich-text{
+        padding: 0 16px;
         .title{
             font-size: 18px;
             font-weight: bold;

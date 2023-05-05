@@ -5,7 +5,7 @@
                 <el-card 
                     class="hover-box" 
                     shadow="always" 
-                    :body-style="{ padding: '10px' }" 
+                    :body-style="{ padding: '16px' }" 
                     style="margin-bottom: 10px; cursor: pointer;"
                 >
                     <div @click="tapItem(item)">

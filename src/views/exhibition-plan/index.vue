@@ -48,9 +48,16 @@ export default {
             return arr
         }
     },
-    created() {
-        this.devTypeData()
-        this.devData()
+    async created() {
+        await this.devTypeData()
+        await this.devData()
+        const { id } = this.$route.query
+        if(id) {
+            const options = this.rows.find(item => item.id == id)
+            this.active = options.industry_dictionary
+            this.itemData = options
+            this.currentRole = 'Detail'
+        }
     },
     methods: {
         async devData() {

@@ -30,3 +30,13 @@ export function companyInfo(data) {
 export function depart(data) {
     return get('/stage-api/depart', data)
 }
+
+/**
+ * 
+ * 获取banner
+ * @param {*} data
+ * @returns 
+ */
+export function banner(data) {
+    return get('/stage-api/banner', data)
+}

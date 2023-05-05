@@ -1,7 +1,7 @@
 <template>
-    <swiper :options="swiperOption">
+    <swiper :options="swiperOption" v-if="isReady">
         <swiperSlide v-for="(item, index) in banners" :key="index">
-            <div class="banner-item" :style="{ backgroundImage: 'url(' + item.icon + ')' }"></div>
+            <div class="banner-item" :style="{ backgroundImage: 'url(' + item.img_list + ')' }" @click="tapRoute(item)"></div>
         </swiperSlide>
         <div class="swiper-pagination" slot="pagination"></div>
     </swiper>
@@ -9,18 +9,12 @@
 
 <script>
 import { swiper, swiperSlide } from 'vue-awesome-swiper'
+import { banner } from '@/apis/common'
 export default {
     components: { swiper, swiperSlide },
     data() {
         return {
-            banners: [
-                { title: '', icon: require('@/assets/images/banner-1.png'), url: '' },
-                { title: '', icon: require('@/assets/images/banner-2.png'), url: '' },
-                { title: '', icon: require('@/assets/images/banner-3.png'), url: '' },
-                { title: '', icon: require('@/assets/images/banner-4.png'), url: '' },
-                { title: '', icon: require('@/assets/images/banner-5.png'), url: '' },
-                { title: '', icon: require('@/assets/images/banner-6.png'), url: '' }
-            ],
+            banners: [],
             swiperOption: {
                 effect: "cube",
                 grabCursor: true,
@@ -39,7 +33,29 @@ export default {
                 pagination: {
                     el: ".swiper-pagination"
                 }
+            },
+            isReady: false
+        }
+    },
+    created() {
+        this.devData()
+    },
+    methods: {
+        async devData() {
+            const params = {}
+            const { code, data } = await banner(params)
+            if(code === 0) {
+                this.banners = data || []
+                this.isReady = true
             }
+        },
+        tapRoute(item) {
+            this.$router.push({
+                path: '/exhibition-plan',
+                query: {
+                    id: item.href
+                }
+            })
         }
     }
 }
