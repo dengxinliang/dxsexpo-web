@@ -20,7 +20,7 @@
             </div>
         </el-header>
         <Banner v-if="$route.name === 'home'" />
-        <img :src="require('@/assets/images/page-banner.png')" alt="" style="width: 100%; margin-bottom: -120px;" v-else>
+        <img :src="require('@/assets/images/page-banner.png')" alt="" style="width: 100%; margin-bottom: -160px;" v-else>
         <el-main>
             <transition
                 appear
@@ -80,7 +80,7 @@
                         <div class="flex-align" style="background: #9a9a9a; padding: 0 10px; border-radius: 50px;">
                             <i class="iconfont dxs-jiaju-09"
                                 style="font-size: 26px;"></i>
-                            <span style="margin-left: 10px; color: #fff; font-weight: bold;">{{exhibitionInfo.mobile}}</span>
+                            <span style="margin-left: 10px; color: #fff; font-weight: bold;">021-{{exhibitionInfo.mobile}}</span>
                         </div>
                     </div>
                 </div>

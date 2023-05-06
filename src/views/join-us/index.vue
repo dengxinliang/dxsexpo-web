@@ -1,14 +1,29 @@
 <template>
     <div class="page-center">
-        <div v-html="context"></div>
+        <el-card class="hover-box" :body-style="{ padding: '30px' }" shadow="always">
+            <div v-html="options.des"></div>
+        </el-card>
     </div>
 </template>
 
 <script>
+import { recruit } from '@/apis/common'
 export default {
     data() {
         return {
-            context: ''
+            options: {}
+        }
+    },
+    created() {
+        this.devData()
+    },
+    methods: {
+        async devData() {
+            const params = {}
+            const { code, data } = await recruit(params)
+            if (code === 0) {
+                this.options = data || {}
+            }
         }
     }
 }

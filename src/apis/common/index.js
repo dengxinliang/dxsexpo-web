@@ -40,3 +40,13 @@ export function depart(data) {
 export function banner(data) {
     return get('/stage-api/banner', data)
 }
+
+/**
+ * 
+ * 获取招聘信息
+ * @param {*} data
+ * @returns 
+ */
+export function recruit(data) {
+    return get('/stage-api/recruit', data)
+}

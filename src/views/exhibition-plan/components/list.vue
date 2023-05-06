@@ -1,22 +1,22 @@
 <template>
     <div class="flex-wrap">
-        <el-row :gutter="20" style="width: 100%;">
-            <el-col :span="8" v-for="(item, index) in list" :key="index">
+        <el-row :gutter="10" style="width: 100%;">
+            <el-col :span="6" v-for="(item, index) in list" :key="index">
                 <el-card 
                     class="hover-box" 
                     shadow="always" 
-                    :body-style="{ padding: '20px' }" 
-                    style="margin-bottom: 20px; cursor: pointer; height: 480px;"
+                    :body-style="{ padding: '16px' }" 
+                    style="margin-bottom: 10px; cursor: pointer;"
                 >
                     <div @click="tapItem(item)">
                         <el-image
-                            style="width: 100%; height: 240px;"
+                            style="width: 100%; height: 212px;"
                             :src="item.logo"
-                            fit="fill">
+                            fit="cover">
                         </el-image>
-                        <p class="plan-title">{{ item.name }}</p>
+                        <p class="plan-title ellipsis">{{ item.name }}</p>
                         <p>日期：{{ item.exhibition_date }}</p>
-                        <p>地址：{{ item.address }}</p>
+                        <p class="ellipsis">地址：{{ item.address }}</p>
                     </div>
                 </el-card>
             </el-col>

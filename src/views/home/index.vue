@@ -22,10 +22,10 @@
                     <el-card 
                         class="hover-box" 
                         shadow="always" 
-                        :body-style="{ padding: '10px' }" 
+                        :body-style="{ padding: '0 10px' }" 
                         v-for="(item, index) in informationList" 
                         :key="index" 
-                        style="margin-bottom: 10px;"
+                        style="margin-bottom: 10px; height: 170px; display: flex; align-items: center;"
                     >
                         <div @click="tapItem(item, '/news')">
                             <el-row :gutter="10">
@@ -33,7 +33,7 @@
                                     <img :src="item.img_list">
                                 </el-col>
                                 <el-col :xs="24" :sm="24" :md="15">
-                                    <div class="min-title">{{item.title}}</div>
+                                    <div class="min-title ellipsis">{{item.title}}</div>
                                     <p class="clamp-3">{{initHtml(item.des)}}</p>
                                     <p class="times">{{parseTime(new Date(item.create_date))}}</p>
                                 </el-col>
@@ -47,8 +47,8 @@
                         <el-col :xs="24" :sm="24" :md="12" v-for="(item, index) in exhibitionSceneList" :key="index">
                             <el-card class="hover-box" shadow="always" :body-style="{ padding: '15px' }" style="margin-bottom: 10px;">
                                 <div @click="tapItem(item, '/exhibition-scene')">
-                                    <img :src="item.img_list">
-                                    <div class="pad-10 ellipsis">{{item.des}}</div>
+                                    <img :src="item.img_list" style="height: 218px;">
+                                    <div class="ellipsis" style="height: 42px; line-height: 42px;">{{item.des}}</div>
                                 </div>
                             </el-card>
                         </el-col>

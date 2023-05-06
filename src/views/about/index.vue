@@ -4,13 +4,22 @@
             <el-tab-pane label="公司简介">
                 <div v-html="exhibitionInfo.des"></div>
                 <div style="height: 16px;"></div>
-                <div v-for="(item, index) in imgList" :key="index">
-                    <el-image 
-                        style="width: 100%;"
-                        :src="item.url" 
-                        :preview-src-list="[item.url]">
-                    </el-image>
-                </div>
+                <el-row :gutter="10">
+                    <el-col :span="12" v-for="(item, index) in imgList" :key="index">
+                        <el-card 
+                            class="hover-box" 
+                            shadow="always" 
+                            :body-style="{ padding: '10px' }" 
+                            style="margin-bottom: 10px; cursor: pointer;"
+                        >
+                            <el-image 
+                                :src="item.url" 
+                                :preview-src-list="[item.url]"
+                                style="width: 100%; height: 358px;">
+                            </el-image>
+                        </el-card>
+                    </el-col>
+                </el-row>
             </el-tab-pane>
             <el-tab-pane label="企业文化">
                 <div v-html="companyInfoObj.des"></div>

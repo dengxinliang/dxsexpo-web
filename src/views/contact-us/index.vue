@@ -3,9 +3,9 @@
         <el-card class="hover-box" :body-style="{ padding: '10px 30px' }" shadow="always">
             <div class="title">{{exhibitionInfo.name}}</div>
             <el-row>
-                <el-col :span="8"><p>电话：{{exhibitionInfo.mobile}}</p></el-col>
+                <el-col :span="6"><p>电话：021-{{exhibitionInfo.mobile}}</p></el-col>
                 <!-- <el-col :span="8"><p>传真：{{exhibitionInfo.fax}}</p></el-col> -->
-                <el-col :span="8"><p>邮箱：{{exhibitionInfo.email}}</p></el-col>
+                <el-col :span="10"><p>邮箱：{{exhibitionInfo.email}}</p></el-col>
                 <el-col :span="8"><p>地址：{{exhibitionInfo.address}}</p></el-col>
             </el-row>
             <Amap />
