@@ -14,9 +14,6 @@
                     </div>
                 </div>
                 <Nav />
-                <!-- <div class="tips" v-if="isPx">
-                    <p><i class="el-icon-phone"></i>服务热线: 158 0175 9961</p>
-                </div> -->
             </div>
         </el-header>
         <Banner v-if="$route.name === 'home'" />
@@ -42,22 +39,20 @@
                     <div>
                         <p style="margin-top: 8px;">版权所有：{{exhibitionInfo.name}}</p>
                         <p>地址：{{exhibitionInfo.address}}</p>
-                        <!-- <p style="margin-top: -4px;" v-if="isPx">
-                            COPYRIGHT@2017 DAIL.COM.CN ALLRIGHTS RESERVED 
+                        <p v-if="isPx">
+                            COPYRIGHT@2017 EXPOES.COM.CN ALLRIGHTS RESERVED 
                             <span>
-                                <a href="http://beian.miit.gov.cn/" target="_blank">备案号：沪ICP备17016645号-1</a>
-                                <a href="http://wap.scjgj.sh.gov.cn/businessCheck/verifKey.do?showType=extShow&serial=9031000020170712120505000001918026-SAIC_SHOW_310000-20120223150829742947&signData=MEQCIFXkrz5Y3hRpAzdbLg4iTugGGrW4UvjusAWxjV+lsNkbAiBAyZyxHMMdILhJCU8wfpZ0dvE+3NNesNJcSOt+rNrG8Q==" target="_blank">
+                                <a href="https://beian.miit.gov.cn" target="_blank">备案号：沪ICP备2023011572号-1</a>
+                                <!-- <a href="http://wap.scjgj.sh.gov.cn/businessCheck/verifKey.do?showType=extShow&serial=9031000020170712120505000001918026-SAIC_SHOW_310000-20120223150829742947&signData=MEQCIFXkrz5Y3hRpAzdbLg4iTugGGrW4UvjusAWxjV+lsNkbAiBAyZyxHMMdILhJCU8wfpZ0dvE+3NNesNJcSOt+rNrG8Q==" target="_blank">
                                     <img :src="require('@/assets/images/01.png')" alt="" height="30">
-                                </a>
+                                </a> -->
                             </span>  
-                        </p> -->
+                        </p>
                         <!-- <p v-else>服务热线: 158 0175 9961</p> -->
                     </div>
                 </div>
                 <div v-if="isPx">
                     <div class="flex-align">
-                        <!-- <i class="iconfont dxs-weibo"
-                            style="font-size: 36px; margin-right: 14px;"></i> -->
                         <el-dropdown style="margin-right: 10px;">
                             <span class="el-dropdown-link">
                                 <i class="iconfont dxs-weixin"
@@ -143,7 +138,7 @@ export default {
     }
 }
 .layout-foot{
-    padding: 0 10%;
+    padding: 10px 10%;
     display: flex;
     justify-content: space-between;
     align-items: center;

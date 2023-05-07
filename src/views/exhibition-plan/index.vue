@@ -89,6 +89,7 @@ export default {
 
 <style lang="less" scoped>
 .plan-list{
+    max-width: calc(100vw - 40px - 220px);
     flex: 1;
     padding: 0 10px 20px 0;
 }

@@ -15,8 +15,8 @@
                             fit="cover">
                         </el-image>
                         <p class="plan-title ellipsis">{{ item.name }}</p>
-                        <p>日期：{{ item.exhibition_date }}</p>
-                        <p class="ellipsis">地址：{{ item.address }}</p>
+                        <p style="font-size: 12px;">日期：{{ item.exhibition_date }}</p>
+                        <p class="ellipsis" style="font-size: 12px;">地址：{{ item.address }}</p>
                     </div>
                 </el-card>
             </el-col>
@@ -51,7 +51,7 @@ export default {
 
 <style lang="less" scoped>
 .plan-title{
-    font-size: 18px;
+    font-size: 16px;
     font-weight: bold;
     margin-top: 10px;
     margin-bottom: 4px;
