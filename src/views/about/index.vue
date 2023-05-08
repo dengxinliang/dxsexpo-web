@@ -2,7 +2,11 @@
     <div class="page-center">
         <el-tabs type="border-card">
             <el-tab-pane label="公司简介">
-                <div v-html="exhibitionInfo.des"></div>
+                <div class="about-title">
+                    <span>东新盛（上海）展览有限公司</span>
+                    <p>East Shinsen（Shanghai）Exhibition Co.,Itd</p>
+                </div>
+                <div v-html="exhibitionInfo.des" style="line-height: 2;"></div>
                 <div style="height: 16px;"></div>
                 <el-row :gutter="10">
                     <el-col :span="12" v-for="(item, index) in imgList" :key="index">
@@ -15,7 +19,7 @@
                             <el-image 
                                 :src="item.url" 
                                 :preview-src-list="[item.url]"
-                                style="width: 100%; height: 358px;">
+                                style="width: 100%;">
                             </el-image>
                         </el-card>
                     </el-col>
@@ -73,7 +77,28 @@ export default {
 </script>
 
 <style lang="less" scoped>
-/deep/ .el-tabs__item{
-    font-size: 16px;
+.about-title{
+    text-align: center;
+    padding: 30px 0;
+    position: relative;
+    font-size: 20px;
+    span{
+        font-size: 36px;
+        font-weight: bold;
+        position: relative;
+        background: #fff;
+        padding: 0 30px;
+        z-index: 1;
+    }
+    &::after{
+        content: "";
+        width: 100%;
+        height: 1px;
+        background: rgba(43, 43, 43, .2);
+        position: absolute;
+        left: 0;
+        top: 50%;
+        margin-top: -10px;
+    }
 }
 </style>

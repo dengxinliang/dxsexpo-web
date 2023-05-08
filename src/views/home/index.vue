@@ -1,7 +1,7 @@
 <template>
     <div class="page-center">
         <div>
-            <Title title="关于我们" />
+            <Title title="关于我们" @tapBtn="$router.push({path: '/about'})" />
             <el-card class="hover-box" :body-style="{ padding: '10px' }" shadow="always">
                 <div class="flex-wrap">
                     <p class="max-w488 max-w390">
@@ -70,9 +70,9 @@
                 </el-row>
             </el-card>
         </div>
-        <div>
+        <!-- <div>
             <Title title="合作媒体" :isBtn="false" />
-            <!-- <el-card shadow="always" :body-style="{ padding: '10px' }"> -->
+            <el-card shadow="always" :body-style="{ padding: '10px' }">
                 <div class="hezuo">
                     <a href="javascript:;" class="hover-box">
                         <img src="//nwzimg.wezhan.cn/contents/sitefiles2051/10257901/images/26046858.jpg" alt="">
@@ -81,8 +81,8 @@
                         <img src="//nwzimg.wezhan.cn/contents/sitefiles2051/10257901/images/26046854.jpg" alt="">
                     </a>
                 </div>
-            <!-- </el-card> -->
-        </div>
+            </el-card>
+        </div> -->
     </div>
 </template>
 

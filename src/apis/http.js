@@ -3,7 +3,7 @@ import axios from 'axios';
 const netWork = (()=>{
     const update = () => {
         const  instance = axios.create({
-            baseURL: process.env.NODE_ENV === 'development' ? '/api' : 'http://139.224.237.86',
+            baseURL: process.env.NODE_ENV === 'development' ? '/api' : window.location.origin,
             timeout: 20000,
             withCredentials: true
         });

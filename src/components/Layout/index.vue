@@ -30,7 +30,7 @@
         <el-footer>
             <div class="layout-foot">
                 <div class="flex-align">
-                    <div class="logo" v-if="isPx">
+                    <div class="logo">
                         <el-image
                             fit="cover"
                             :src="exhibitionInfo.logo"
@@ -39,8 +39,7 @@
                     <div>
                         <p style="margin-top: 8px;">版权所有：{{exhibitionInfo.name}}</p>
                         <p>地址：{{exhibitionInfo.address}}</p>
-                        <p v-if="isPx">
-                            COPYRIGHT@2017 EXPOES.COM.CN ALLRIGHTS RESERVED 
+                        <p>
                             <span>
                                 <a href="https://beian.miit.gov.cn" target="_blank">备案号：沪ICP备2023011572号-1</a>
                                 <!-- <a href="http://wap.scjgj.sh.gov.cn/businessCheck/verifKey.do?showType=extShow&serial=9031000020170712120505000001918026-SAIC_SHOW_310000-20120223150829742947&signData=MEQCIFXkrz5Y3hRpAzdbLg4iTugGGrW4UvjusAWxjV+lsNkbAiBAyZyxHMMdILhJCU8wfpZ0dvE+3NNesNJcSOt+rNrG8Q==" target="_blank">
@@ -48,10 +47,11 @@
                                 </a> -->
                             </span>  
                         </p>
+                        <p>COPYRIGHT@2017 EXPOES.COM.CN ALLRIGHTS RESERVED </p>
                         <!-- <p v-else>服务热线: 158 0175 9961</p> -->
                     </div>
                 </div>
-                <div v-if="isPx">
+                <div>
                     <div class="flex-align">
                         <el-dropdown style="margin-right: 10px;">
                             <span class="el-dropdown-link">
@@ -63,6 +63,11 @@
                                     <el-image
                                         fit="cover"
                                         :src="require('@/assets/images/wx.jpg')"
+                                        style="width: 144px; height: 164px; margin-right: 10px;"
+                                    ></el-image>
+                                    <el-image
+                                        fit="cover"
+                                        :src="require('@/assets/images/wx-2.jpg')"
                                         style="width: 144px; height: 164px;"
                                     ></el-image>
                                 </el-dropdown-item>
@@ -75,7 +80,7 @@
                         <div class="flex-align" style="background: #9a9a9a; padding: 0 10px; border-radius: 50px;">
                             <i class="iconfont dxs-jiaju-09"
                                 style="font-size: 26px;"></i>
-                            <span style="margin-left: 10px; color: #fff; font-weight: bold;">021-{{exhibitionInfo.mobile}}</span>
+                            <span style="margin-left: 10px; color: #fff; font-weight: bold;">{{exhibitionInfo.mobile}}</span>
                         </div>
                     </div>
                 </div>
@@ -97,7 +102,7 @@ export default {
         }
     },
     computed: {
-        ...mapState(['isPx', 'exhibitionInfo'])
+        ...mapState(['exhibitionInfo'])
     }
 }
 </script>
@@ -154,7 +159,7 @@ export default {
             align-items: center;
         }
         a{
-            margin-left: 6px;
+            // margin-left: 6px;
             color: #2b2b2b;
         }
     }
