@@ -1,5 +1,5 @@
 <template>
-    <div class="flex-wrap" style="padding: 0 10px 20px">
+    <div class="flex-wrap" style="padding: 0 20px 20px">
         <el-row :gutter="10">
             <el-col :span="24" v-for="(item, index) in list" :key="index">
                 <el-card 

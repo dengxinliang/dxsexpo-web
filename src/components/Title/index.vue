@@ -37,23 +37,23 @@ export default {
     font-size: 20px;
     color: #21268a;
     font-weight: bold;
-    padding: 10px 0 4px 68px;
-    border-bottom: 4px solid #21268a;
+    padding: 10px 0 4px 0;
+    border-bottom: 2px solid rgba(33, 38, 138, .2);
     position: relative;
-    margin: 10px 0;
-    box-shadow: 0 10px 10px -10px rgba(33, 38, 138, 1);
+    margin: 10px 0 16px;
+    box-shadow: 0 2px 4px -4px rgba(33, 38, 138, .06);
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
 }
-.page-title::after{
-    content: "";
-    width: 60px;
-    height: 24px;
-    background: #21268a;
-    position: absolute;
-    left: 0;
-    bottom: -4px;
-    border-radius: 4px 30px 0 0;
-}
+// .page-title::after{
+//     content: "";
+//     width: 60px;
+//     height: 24px;
+//     background: #21268a;
+//     position: absolute;
+//     left: 0;
+//     bottom: -4px;
+//     border-radius: 4px 30px 0 0;
+// }
 </style>

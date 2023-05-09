@@ -1,6 +1,6 @@
 <template>
     <div class="page-center page-box">
-        <Title title="行业资讯" :isBtn="currentRole === 'Detail'" btnText="返回" @tapBtn="tapTitleBtn" style="padding: 10px 10px 4px 68px;" />
+        <Title title="行业资讯" :isBtn="currentRole === 'Detail'" btnText="返回" @tapBtn="tapTitleBtn" style="padding: 16px 24px; margin: 0 0 20px;" />
         <keep-alive>
             <component :is="currentRole" :list="list" :options="options" @tapOption="tapOption"></component>
         </keep-alive>

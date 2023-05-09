@@ -1,5 +1,5 @@
 <template>
-    <div class="page-center">
+    <div class="page-center" style="border-radius: 8px 8px 0 0; overflow: hidden;">
         <el-tabs type="border-card">
             <el-tab-pane label="公司简介">
                 <div class="about-title">

@@ -1,6 +1,6 @@
 <template>
     <div class="page-center page-box">
-        <Title title="展览计划" :isBtn="false" />
+        <Title title="展览计划" :isBtn="false" style="padding: 16px 24px; margin: 0;" />
         <div class="flex">
             <el-tabs 
                 v-model="active"
@@ -91,7 +91,7 @@ export default {
 .plan-list{
     max-width: calc(100vw - 40px - 220px);
     flex: 1;
-    padding: 0 10px 20px 0;
+    padding: 20px 10px 20px;
 }
 /deep/ .el-tabs__header{
     background: rgba(33, 38, 138, .1);

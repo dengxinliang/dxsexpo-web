@@ -1,5 +1,5 @@
 <template>
-    <div class="page-center">
+    <div class="page-center" style="border-radius: 8px 8px 0 0; overflow: hidden;">
         <el-card class="hover-box" :body-style="{ padding: '30px' }" shadow="always">
             <div v-html="options.des"></div>
         </el-card>

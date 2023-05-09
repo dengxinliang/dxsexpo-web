@@ -1,5 +1,5 @@
 <template>
-    <div class="page-center">
+    <div class="page-center" style="border-radius: 8px 8px 0 0; overflow: hidden;">
         <el-card class="hover-box" :body-style="{ padding: '10px 30px' }" shadow="always">
             <div class="title">{{exhibitionInfo.name}}</div>
             <el-row style="margin-bottom: 20px;">
