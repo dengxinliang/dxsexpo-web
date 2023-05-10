@@ -1,6 +1,6 @@
 <template>
     <div class="page-center page-box">
-        <Title title="展览计划" :isBtn="false" style="padding: 16px 24px; margin: 0;" />
+        <Title title="展览计划" :isBtn="currentRole === 'Detail'" btnText="返回" @tapBtn="tapTitleBtn" style="padding: 16px 24px; margin: 0;" />
         <div class="flex">
             <el-tabs 
                 v-model="active"
@@ -81,6 +81,9 @@ export default {
             this.itemData = item
         },
         tapTab() {
+            this.currentRole = 'List'
+        },
+        tapTitleBtn() {
             this.currentRole = 'List'
         }
     }

@@ -22,15 +22,15 @@
                     <el-card 
                         class="hover-box" 
                         shadow="always" 
-                        :body-style="{ padding: '0 10px' }" 
+                        :body-style="{ padding: '10px' }" 
                         v-for="(item, index) in informationList" 
                         :key="index" 
-                        style="margin-bottom: 10px; height: 170px; display: flex; align-items: center;"
+                        style="margin-bottom: 10px; display: flex; align-items: center;"
                     >
                         <div @click="tapItem(item, '/news')">
                             <el-row :gutter="10">
                                 <el-col :xs="24" :sm="24" :md="9">
-                                    <img :src="item.img_list">
+                                    <img :src="item.img_list" style="height: 150px;">
                                 </el-col>
                                 <el-col :xs="24" :sm="24" :md="15">
                                     <div class="min-title ellipsis">{{item.title}}</div>
@@ -132,14 +132,20 @@ export default {
     methods: {
         parseTime,
         async information() {
-            const params = {}
+            const params = {
+                pageSize: 5,
+                pageNumber: 1
+            }
             const { code, data } = await information(params)
             if(code === 0) {
                 this.informationList = data || []
             }
         },
         async exhibitionScene() {
-            const params = {}
+            const params = {
+                pageSize: 6,
+                pageNumber: 1
+            }
             const { code, data } = await exhibitionScene(params)
             if(code === 0) {
                 this.exhibitionSceneList = data || []

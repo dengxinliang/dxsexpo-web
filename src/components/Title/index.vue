@@ -44,7 +44,10 @@ export default {
     box-shadow: 0 2px 4px -4px rgba(33, 38, 138, .06);
     display: flex;
     justify-content: space-between;
-    align-items: flex-end;
+    align-items: center;
+    /deep/ .el-button{
+        padding: 0;
+    }
 }
 // .page-title::after{
 //     content: "";
