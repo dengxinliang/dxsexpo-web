@@ -7,6 +7,7 @@
                     <p class="max-w488 max-w390">
                         <el-image 
                             style="width: 100%;"
+                            lazy
                             :src="exhibitionImg" 
                             :preview-src-list="[exhibitionImg]">
                         </el-image>
@@ -30,7 +31,12 @@
                         <div @click="tapItem(item, '/news')">
                             <el-row :gutter="10">
                                 <el-col :xs="24" :sm="24" :md="9">
-                                    <img :src="item.img_list" style="height: 150px;">
+                                    <el-image 
+                                        style="height: 140px;"
+                                        lazy
+                                        :src="item.img_list">
+                                    </el-image>
+                                    <!-- <img :src="item.img_list" style="height: 150px;"> -->
                                 </el-col>
                                 <el-col :xs="24" :sm="24" :md="15">
                                     <div class="min-title ellipsis">{{item.title}}</div>
@@ -47,7 +53,12 @@
                         <el-col :xs="24" :sm="24" :md="12" v-for="(item, index) in exhibitionSceneList" :key="index">
                             <el-card class="hover-box" shadow="always" :body-style="{ padding: '15px' }" style="margin-bottom: 10px;">
                                 <div @click="tapItem(item, '/exhibition-scene')">
-                                    <img :src="item.img_list" style="height: 218px;">
+                                    <el-image 
+                                        style="height: 210px;"
+                                        lazy
+                                        :src="item.img_list">
+                                    </el-image>
+                                    <!-- <img :src="item.img_list" style="height: 218px;"> -->
                                     <div class="ellipsis" style="height: 42px; line-height: 42px;">{{item.des}}</div>
                                 </div>
                             </el-card>
