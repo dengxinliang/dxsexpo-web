@@ -2,7 +2,7 @@
     <swiper :options="swiperOption" v-if="isReady">
         <swiperSlide v-for="(item, index) in banners" :key="index">
             <div class="banner-item" @click="tapRoute(item)">
-                <img :data-src="item.img_list" class="swiper-lazy" :data-srcset="item.img_list" alt="">
+                <img :data-src="item.img_list" class="swiper-lazy" :data-srcset="item.img_list" alt="" style="height: 100%;">
             </div>
         </swiperSlide>
         <div class="swiper-pagination" slot="pagination"></div>
@@ -27,7 +27,7 @@ export default {
                     shadowScale: 0.94
                 },
                 autoplay: {
-                    delay: 10000,
+                    delay: 3000,
                     disableOnInteraction: false
                 },
                 loop: true,
