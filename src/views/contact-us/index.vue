@@ -5,6 +5,7 @@
             <el-row style="margin-bottom: 20px;">
                 <el-col :span="24"><p>{{exhibitionInfo.address}}</p></el-col>
                 <el-col :span="24"><p>电话：{{exhibitionInfo.mobile}}</p></el-col>
+                <el-col :span="24"><p>手机：13916723040  13671987051</p></el-col>
                 <el-col :span="24"><p>邮编：201619</p></el-col>
                 <!-- <el-col :span="8"><p>传真：{{exhibitionInfo.fax}}</p></el-col> -->
                 <el-col :span="24"><p>邮箱：{{exhibitionInfo.email}}</p></el-col>

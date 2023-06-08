@@ -77,11 +77,16 @@
                             <i class="iconfont dxs-QQ"
                             style="font-size: 36px; margin-right: 10px;"></i>
                         </a>
-                        <div class="flex-align" style="background: #9a9a9a; padding: 0 10px; border-radius: 50px;">
-                            <i class="iconfont dxs-jiaju-09"
-                                style="font-size: 26px;"></i>
-                            <span style="margin-left: 10px; color: #fff; font-weight: bold;">{{exhibitionInfo.mobile}}</span>
-                        </div>
+                    </div>
+                    <div class="flex-align" style="background: #9a9a9a; padding: 0 10px; border-radius: 50px;">
+                        <i class="iconfont dxs-jiaju-09"
+                            style="font-size: 26px;"></i>
+                        <span style="margin-left: 10px; color: #fff; font-weight: bold;">{{exhibitionInfo.mobile}}</span>
+                    </div>
+                    <div class="flex-align" style="background: #9a9a9a; padding: 0 10px; border-radius: 50px; margin-top: 10px;">
+                        <i class="iconfont dxs-dianhua"
+                            style="font-size: 26px;"></i>
+                        <span style="margin-left: 10px; color: #fff; font-weight: bold;">13916723040  13671987051</span>
                     </div>
                 </div>
             </div>
