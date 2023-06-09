@@ -17,7 +17,7 @@
             </div>
         </el-header>
         <Banner v-if="$route.name === 'home'" />
-        <img :src="require('@/assets/images/page-banner.png')" alt="" style="width: 100%; margin-bottom: -160px;" v-else>
+        <img :src="require('@/assets/images/page-banner.png')" alt="" style="width: 100%; margin-bottom: -60px;" v-else>
         <el-main>
             <transition
                 appear
