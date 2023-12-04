@@ -102,7 +102,7 @@ export default {
     .el-tabs__item{
         width: 200px;
         height: 60px;
-        padding: 0 30px;
+        padding: 0 20px 0 10px;
         font-size: 16px;
         line-height: 60px;
         position: relative;

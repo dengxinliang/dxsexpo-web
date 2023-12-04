@@ -3,7 +3,7 @@
 // see http://vuejs-templates.github.io/webpack for documentation.
 
 module.exports = {
-  publicPath: './',
+  publicPath: process.env.NODE_ENV === 'development' ? './' : 'https://dxsexpo-oss.oss-cn-shanghai.aliyuncs.com/dxsexpo-web/',
   devServer: {
     // Paths
     proxy: {

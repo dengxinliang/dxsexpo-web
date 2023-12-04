@@ -15,7 +15,6 @@ export default {
     }
   },
   mounted() {
-    this.devData()
     this.init()
     window.onresize = () => {
         return (() => {
@@ -24,11 +23,15 @@ export default {
     }
   },
   methods: {
-    ...mapMutations(['getWindowPc', 'getExhibitionInfo']),
+    ...mapMutations(['getExhibitionInfo']),
     init() {
       let clientWidth = document.documentElement.clientWidth
       let isPx = clientWidth > 1000
-      this.getWindowPc(isPx)
+      if(!isPx) {
+        window.location.href = window.location.origin + '/dxsexpo-app/'
+        return
+      }
+      this.devData()
     },
     async devData() {
       const params = {}

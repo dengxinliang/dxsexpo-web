@@ -1,5 +1,5 @@
 <template>
-    <el-amap
+    <!-- <el-amap
         ref="amap"
         vid="amap"
         :center="mapCenter"
@@ -10,17 +10,20 @@
         class="amap-demo"
         style="height: 500px; width: 100%;">
         <el-amap-marker :position="mapCenter"></el-amap-marker>
-    </el-amap>
+    </el-amap> -->
+    <div>
+        <img :src="require('@/assets/images/amap.png')" alt="">
+    </div>
 </template>
 
 <script>
-import { AMapManager } from 'vue-amap'
+// import { AMapManager } from 'vue-amap'
 export default {
     data() {
         return {
-            mapCenter: [121.278576, 31.092369],
-            amapManager: new AMapManager(),
-            plugin: ['ToolBar']
+            // mapCenter: [121.278576, 31.092369],
+            // amapManager: new AMapManager(),
+            // plugin: ['ToolBar']
         }
     },
     methods: {
