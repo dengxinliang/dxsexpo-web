@@ -8,7 +8,7 @@ module.exports = {
     // Paths
     proxy: {
       '/api': {
-          target: "http://139.224.237.86",
+          target: "https://www.expoes.com.cn",
           changeOrigin: true,
           cookieDomainRewrite: {
               '*': "http://127.0.0.1:8088/",

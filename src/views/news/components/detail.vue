@@ -7,7 +7,7 @@
             <span>{{parseTime(new Date(options.create_date), '{y}-{m}-{d}')}}</span>
         </div>
         <el-divider></el-divider>
-        <div v-html="options.des"></div>
+        <div class="news-text" v-html="options.des"></div>
     </div>
 </template>
 
@@ -24,6 +24,12 @@ export default {
 <style lang="less" scoped>
 .news-detail{
     padding: 20px;
+    .news-text{
+        :deep(img){
+            width: auto;
+            display: initial;
+        }
+    }
     .title{
         font-size: 20px;
         font-weight: bold;

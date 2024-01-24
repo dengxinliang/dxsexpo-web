@@ -32,7 +32,7 @@
                             <el-row :gutter="10">
                                 <el-col :xs="24" :sm="24" :md="9">
                                     <el-image 
-                                        style="height: 140px;"
+                                        style="height: 140px;width: 100%;"
                                         lazy
                                         :src="item.img_list">
                                     </el-image>

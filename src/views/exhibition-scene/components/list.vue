@@ -1,12 +1,13 @@
 <template>
     <div class="flex-wrap" style="padding: 0 20px 20px">
         <el-row :gutter="10">
-            <el-col :span="8" v-for="(item, index) in list" :key="index">
+            <el-col :span="8" v-for="v in 3" :key="'index' + v">
                 <el-card 
                     class="hover-box" 
                     shadow="always" 
                     :body-style="{ padding: '16px' }" 
                     style="margin-bottom: 10px; cursor: pointer;"
+                    v-for="(item, index) in getList(v)" :key="index"
                 >
                     <div @click="tapItem(item)">
                         <img :src="item.img_list" alt="">
@@ -38,6 +39,9 @@ export default {
     methods: {
         tapItem(item) {
             this.$emit('tapOption', item)
+        },
+        getList(len) {
+            return this.list.filter((item, index) => (index % 3) + 1 === len)
         }
     }
 }
