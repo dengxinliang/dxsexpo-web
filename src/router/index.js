@@ -5,7 +5,7 @@ import Layout from '@/components/Layout'
 Vue.use(VueRoute)
 
 const router = new VueRoute({
-    // mode: 'history',
+    mode: 'history',
     base: 'dxsexpo-web',
     scrollBehavior: () => ({ y: 0 }),
     routes: [
