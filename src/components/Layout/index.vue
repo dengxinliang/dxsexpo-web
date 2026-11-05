@@ -86,7 +86,7 @@
                     <div class="flex-align" style="background: #9a9a9a; padding: 0 10px; border-radius: 50px; margin-top: 10px;">
                         <i class="iconfont dxs-dianhua"
                             style="font-size: 26px;"></i>
-                        <span style="margin-left: 10px; color: #fff; font-weight: bold;">13916723040  13671987051</span>
+                        <span style="margin-left: 10px; color: #fff; font-weight: bold;">13661966258  13671987051</span>
                     </div>
                 </div>
             </div>
